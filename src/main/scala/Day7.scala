@@ -1,6 +1,6 @@
 object Day7 {
   def main(args: Array[String]): Unit = {
-    //    println(day6Part2())
+    //    println(day7Part2())
   }
 
   case class Program(name: String, weight: Int, children: List[Program], totalWeight: Int)
