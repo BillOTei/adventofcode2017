@@ -15,11 +15,11 @@ object Day10 {
 
   def day10Part2(s: String): String = {
     def go(round: Int, pos: Int, skip: Int, l: List[Int], lengths: List[Int]): String = lengths match {
-      case Nil if round >= 65 =>
+      case Nil if round >= 64 =>
         l.grouped(16).map(_.reduceLeft(_ ^ _)).foldLeft("")((acc, v) => {
           if (v.toHexString.length < 2) acc + "0" + v.toHexString else acc + v.toHexString
         })
-      case Nil if round < 65 => go(round + 1, pos, skip, l, getASCIILengths(s))
+      case Nil if round < 64 => go(round + 1, pos, skip, l, getASCIILengths(s))
       case h :: tail => go(round, (pos + h + skip) % l.length, skip + 1, getNewList(l, pos, h), tail)
     }
 
